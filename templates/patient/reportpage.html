@@ -1,0 +1,83 @@
+{% load static %}
+
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Report page</title>
+<link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+<script src="{%static 'js/bootstrap.min.js' %}"></script>
+<script src="{%static 'js/jquery.min.js' %}"></script>
+<link href="{%static 'css/font-awesome.min.css' %}" rel="stylesheet" id="bootstrap-css">
+ 
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"  >
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/all2.css' %}">
+<!--	<script src="{% static 'js/myscript.js' %}"></script>-->
+	
+</head>
+
+<body >
+<div id="snowflakeContainer">
+<span class="snowflake"> <h1 color="green"> EMR Data</h1></span>
+</div>
+
+<div class="container" >
+	
+	<div id="doctor"></div>
+	
+
+ 
+           
+
+
+
+
+
+	<div class="d-flex justify-content-center h-100  option-doctor">
+	
+	
+	
+		<div class="card" style="width: 80rem; height: 43rem;">
+			<div class="card-header">
+				<h4  style="color:white;">Welcome: {{b}}<button class="btn btn-outline-warning"> <a href="login2">logout</a> </button></h4>
+				<div class="d-flex justify-content-end social_icon ">
+					
+				</div>
+			</div>
+			
+			<div class="card-body" >
+				<div class="card border-success mb-3" style="width: 67rem; height: 35rem;">
+					<div class="card-header text-success">Hello {{b}}</div>
+					<div class="card-body text-success">
+					  <h5 class="card-title">Find your report here</h5>
+					  <p class="card-text">There is available report of your request, choose your report of .</p>
+					  <hr><br><br><br><hr>
+						<table>
+					 <tr> <form method="POST" action = "copdreport">{% csrf_token %}<input type="hidden" name="pemail" value={{email}}><button type="submit" class="btn btn-outline-info" >COPD <span class="badge badge-light">{{flag}}</span></form>
+						<form method="POST" action = "Heartreport">{% csrf_token %}<input type="hidden" name="pemail" value={{email}}><button type="submit" class="btn btn-outline-info"  >Heart <span class="badge badge-light">{{flagheart}}</span></button></form>
+						<form method="POST" action = "LunCancerreport">{% csrf_token %}<input type="hidden" name="pemail" value={{email}}> <button type="submit" class="btn btn-outline-info">LunCancer <span class="badge badge-light">{{flaglung}}</span></button></form>
+						<form method="POST" action = "Diabetesreport">{% csrf_token %}<input type="hidden" name="pemail" value={{email}}><button type="submit" class="btn btn-outline-info"  >Diabetes <span class="badge badge-light">{{flagdia}}</span></button></form>
+					</tr>
+					</table>
+					</div>
+				  </div>
+				
+			</div>
+			
+			<div class="card-footer">
+				 
+			</div>
+		</div>
+	</div>
+
+	
+	 </div>
+
+</body>

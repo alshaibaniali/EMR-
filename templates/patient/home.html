@@ -1,0 +1,136 @@
+{% load static %}
+
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+
+<link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+<script src="{%static 'js/bootstrap.min.js' %}"></script>
+<script src="{%static 'js/jquery.min.js' %}"></script>
+<link href="{%static 'css/font-awesome.min.css' %}" rel="stylesheet" id="bootstrap-css">
+ 
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"  >
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/all2.css' %}">
+<!--	<script src="{% static 'js/myscript.js' %}"></script>-->
+	
+</head>
+
+<body >
+<div id="snowflakeContainer">
+<span class="snowflake"> <h1 color="green"> EMR Data</h1></span>
+</div>
+
+
+<div class="container" >
+	<!--<h1> EMR Data Analysis System to Predict Various Diseases</h1> -->
+		<!--<h1 class="display-6">EMR Data Analysis System to Predict Various Diseases </h1> -->
+	
+	
+	
+		<div id="doctor"></div>
+
+		<!-- clock-->
+		<h3><a style="text-decoration:none;"  >  </h3> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=medium&timezone=Asia%2FKolkata" width="100%" height="115" frameborder="0" seamless></iframe>
+			
+            	
+		<!--First container -->
+		<div class="d-flex justify-content-center h-100 float-md-left option-doctor">
+			<div class="card" style="width: 40rem;">
+				<div class="card-header">
+				<div class="row align-items-center remember" align="center">
+
+					<h3>EMR Data Analysis System to Predict Various Diseases</h3>
+				</div>
+				</div>
+
+				<div class="card-body"  >
+					 
+					<div class="alert alert-success" role="alert">
+						<h4 class="alert-heading">Welcome Patient</h4>
+						<p> We make this site to get the report in realtime through the doctor here you can view and download the report.</p>
+						<hr>
+						<p class="mb-0">We are woking hard to add more disease to predic through the machine learning.</p>
+						 <hr>
+					</div>
+					
+							
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+	<div class="d-flex justify-content-center h-100 float-md-right option-doctor">
+	
+	
+	
+		<div class="card">
+			<div class="card-header">
+				<h3>Sign In</h3>
+				<div class="d-flex justify-content-end social_icon ">
+					<span><i class="fa fa-stethoscope" style="font-size:58px;color:blue"></i></span>
+					<span><i class="fa fa-heartbeat" style="font-size:58px;color:white"></i></span>
+					<span><i class="fa fa-plus-square" style="font-size:58px;color:blue"></i></span>
+					<span><i class="fa fa-user-md" style="font-size:56px;color:white"></i></span>
+					
+				</div>
+			</div>
+			
+			<div class="card-body" >
+				<form action="login" method="POST">
+					{% csrf_token %}
+					{% for message in messages %}
+						<h6 style=color:red;>{{message}}</h6>
+					{% endfor %}
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" ><i class="fa fa-user icon" style='color:blue'></i></span>
+						</div>
+						<input type="email" class="form-control" placeholder="Email id" id="EMail" name = "email" required>
+						
+					</div>
+					<div class="input-group form-group" >
+						<div class="input-group-prepend"  >
+							<span class="input-group-text" style='color:red'><i class="fas fa-key" style='color:blue'></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="password" name = "password" required>
+					</div>
+					<div class="row align-items-center remember">
+						<input type="checkbox">Remember Me
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn" style='background-color:red'>
+					</div>
+				</form>
+			</div>
+			
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links" style='background-color:green'>
+					Don't have an account?<a href="register">Sign Up</a>
+				</div>
+
+				 
+
+ 
+				  
+			</div>
+		</div>
+	</div>
+	 
+</div>
+
+ 
+
+
+</body>

@@ -1,0 +1,194 @@
+{% load static %}
+{% static "report" as baseUrl %}
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Heart prediction</title>
+<link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+<script src="{%static 'js/bootstrap.min.js' %}"></script>
+<script src="{%static 'js/jquery.min.js' %}"></script>
+<link href="{%static 'css/font-awesome.min.css' %}" rel="stylesheet" id="bootstrap-css">
+ 
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"  >
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/all2.css' %}">
+<!--	<script src="{% static 'js/myscript.js' %}"></script>-->
+	
+</head>
+
+<body >
+<div id="snowflakeContainer">
+<span class="snowflake"> <h1 color="green"> EMR Data</h1></span>
+</div>
+
+<div class="container" >
+	
+	<div id="doctor"></div>
+	
+
+ 
+           
+
+
+
+  
+
+	<div class="d-flex justify-content-center h-100  option-doctor">
+	
+	
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th colspan="3" > <center><h1>Report</h1></center></th>
+            </tr>
+            <tr>
+              <td colspan="2" class="bg-success">Patient email</td>
+              <td  ><div class="input-group form-group">
+           
+                <input type="text" class="form-control" value={{pemail1}}   name = "pemail1" readonly>
+                
+              </div></td>
+
+            </tr>
+            <tr>
+              <td colspan="2" class="bg-success">Doctor Name</td>
+              <td><div class="input-group form-group">
+           
+                <input type="text" class="form-control" value={{docname1}}   name = "docname" readonly>
+                
+              </div></td>
+
+            </tr>
+            <tr>
+              <td colspan="2" class="bg-success"> Report</td>
+              <td><div class="input-group form-group">
+           
+                <input type="text" class="form-control" value={{reportof}}   name = "reportof" readonly>
+                
+              </div></td>
+
+            </tr>
+            <tr>
+              <th scope="col" class="bg-danger">Row</th>
+              <th scope="col" class="bg-info">symptoms</th>
+              <th scope="col" class="bg-warning">Range of symptoms</th>
+               
+            </tr>
+          </thead>
+            
+            
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>cp</td>
+                <td><div class="input-group form-group">
+						 
+                  <input type="text" class="form-control" value={{cp}}   name = "cp" readonly>
+                  
+                </div></td>
+                 
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>trestbps</td>
+                <td><div class="input-group form-group">
+						 
+                  <input type="text" class="form-control" value={{trestbps}} name = "trestbps" readonly>
+                  
+                </div></td>
+                 
+              </tr>
+              
+              
+              <tr>
+                <th scope="row">3</th>
+                <td>chol</td>
+                <td><div class="input-group form-group">
+						 
+                  <input type="text" class="form-control" value={{chol}} name = "chol" readonly>
+                  
+                </div> </td>
+                
+              </tr>
+              
+              <tr>
+                <th scope="row">4</th>
+                <td>fbs</td>
+                <td><div class="input-group form-group">
+						 
+                  <input type="text" class="form-control" value={{fbs}} name = "fbs" readonly>
+                  
+                </div> </td>
+                
+              </tr>
+              
+              <tr>
+                <th scope="row">5</th>
+                <td>exang</td>
+                <td><div class="input-group form-group">
+						 
+                  <input type="text" class="form-control" value={{exang}} name = "exang" readonly>
+                  
+                </div> </td>
+                
+              </tr>
+              
+              <tr>
+                <th scope="row">6</th>
+                <td>ca</td>
+                <td><div class="input-group form-group">
+						 
+                  <input type="text" class="form-control" value={{ca}}  name = "ca" readonly>
+                  
+                </div>  </td>
+                
+              </tr>
+              
+              
+              
+              
+              <tr  align="center">
+                          <th colspan="3" > risk of Heart attack</th>
+               </tr>
+              
+              <tr align="center">
+                          <th colspan="3"><div class="input-group form-group">
+						 
+                            <input type="text" class="form-control" value={{data2}} name = "data2" readonly>
+                            
+                          </div> </th>
+               </tr>
+               <tr align="center">
+                <th colspan="3"><div class="form-group d-flex justify-content-center">
+                  <button type="button" class="btn btn-success"><a href="{{baseUrl}}/{{download}}">Download</a></button>
+                  </div> </th>
+                </tr>
+              
+              
+              
+              
+              
+              
+            </tbody>
+          </table>
+          
+		 
+			
+			
+			 
+			 
+				 
+				
+			</div>
+		</div>
+	</div>
+	 </div>
+
+</body>

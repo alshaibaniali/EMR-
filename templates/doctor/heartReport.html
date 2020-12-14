@@ -1,0 +1,150 @@
+{% load static %}
+
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hearts  report</title>
+
+<link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+<script src="{%static 'js/bootstrap.min.js' %}"></script>
+<script src="{%static 'js/jquery.min.js' %}"></script>
+<link href="{%static 'css/font-awesome.min.css' %}" rel="stylesheet" id="bootstrap-css">
+ 
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"  >
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/all2.css' %}">
+<!--    <script src="{% static 'js/myscript.js' %}"></script>-->
+    <style>
+        body{
+            background-image: url('{% static 'images/home-banner.jpg' %}');
+        }
+    </style>
+	
+</head>
+
+<body >
+<div id="snowflakeContainer">
+<span class="snowflake"> <h1 color="green"> EMR Data</h1></span>
+</div>
+
+
+<div class="container" >
+	<!--<h1> EMR Data Analysis System to Predict Various Diseases</h1> -->
+		<!--<h1 class="display-6">EMR Data Analysis System to Predict Various Diseases </h1> -->
+	
+	
+	
+		<div id="doctor"></div>
+
+		
+		
+
+
+
+
+	<div class="d-flex justify-content-center h-100 float-md-center option-doctor">
+	
+	
+	
+		<div class="card"  style="width: 50rem; height: 59rem;">
+			<div class="card-header">
+				<h3>Fill the details</h3>
+				 
+			</div>
+			
+			<div class="card-body" >
+				<form action="predHeart" method="POST">
+					{% csrf_token %}
+
+					<h4 style=color:white>Doctor name:</h4>
+					<div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="Doctor name"   name = "docname" required>
+						
+					</div>
+					
+					<h4 style=color:white>Patient email:</h4>
+					<div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="Patient email:"   name = "pemail" required>
+						
+					</div>
+					
+					<h4 style=color:white>Report of:</h4>
+					<div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="Report of"   name = "reportof" value = "Heart" readonly>
+						
+                    </div>
+
+					 
+					<h4 style=color:white>cp:</h4>	
+					<div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="cp"   name = "cp" required>
+						
+                    </div>
+                    <h4 style=color:white>trestbps:</h4>
+                    <div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="trestbps"   name = "trestbps" required>
+						
+                    </div>
+                    <h4 style=color:white>chol:</h4>
+                    <div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="chol"   name = "chol" required>
+						
+                    </div>
+                    <h4 style=color:white>fbs:</h4>
+                    <div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="fbs"   name = "fbs" required>
+						
+                    </div>
+                    <h4 style=color:white>exang:</h4>
+                    <div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder=" exang"   name = "exang" required>
+						
+                    </div>
+                    <h4 style=color:white>ca:</h4>
+                    <div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder=" ca"   name = "ca" required>
+						
+					</div>
+ 
+					 
+					<div class="form-group d-flex justify-content-center">
+						<input type="submit" value="Submit" class="btn float-right login_btn" style='background-color:red'>
+					</div>
+				</form>
+			</div>
+			
+			 
+
+
+				 
+			</div>
+		</div>
+	</div>
+	 
+</div>
+
+<div>
+	{% for message in messages %}
+	<h6>{{message}}</h6>
+	{% endfor %}
+</div>
+
+
+
+</body>

@@ -1,0 +1,61 @@
+
+
+              {% load static %}
+<html>
+<head>
+              {% load static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<script src="{% static 'js/login.js' %}"> </script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+  <h1 class="h1"> LogIn </h1>
+<div class="login-page">
+  <div class="form">
+  <!--<form class="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+  -->
+
+
+    <form class="login-form" action="login" method="post">
+				            {% csrf_token %}
+
+        {{ form }}
+      <input type="text" name="username" placeholder="username"/>
+      <input type="password" name="password" placeholder="password"/>
+      <button>login</button>
+      <p class="message">Not registered? <a href="/register">Create an account</a></p>
+      <p class="message">Forgot Password? <a href="/register">Reset Password</a></p>
+    </form>
+
+      					<div>
+	                  {% for message in messages %}
+                      <h3> {{message}} </h3>
+		              {% endfor %}
+	                </div>
+                </div>
+            <!-- //copyright
+  		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+    -->
+</div>
+
+</body>
+</html>

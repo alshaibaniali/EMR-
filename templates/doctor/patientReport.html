@@ -1,0 +1,335 @@
+{% load static %}
+
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+	<title>Patient Report</title>
+<link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+<script src="{%static 'js/bootstrap.min.js' %}"></script>
+<script src="{%static 'js/jquery.min.js' %}"></script>
+<link href="{%static 'css/font-awesome.min.css' %}" rel="stylesheet" id="bootstrap-css">
+ 
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"  >
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/all2.css' %}">
+<!--	<script src="{% static 'js/myscript.js' %}"></script>-->
+	
+</head>
+
+<body >
+<div id="snowflakeContainer">
+<span class="snowflake"> <h1 color="green"> EMR Data</h1></span>
+</div>
+
+<div class="container" >
+	
+	<div id="doctor"></div>
+	
+
+ 
+           
+
+
+
+
+
+	<div class="d-flex justify-content-center h-100  option-doctor">
+	
+	
+	
+		<div class="card" style="width: 50rem; height: 100rem;">
+			<div class="card-header">
+				<h3>Patient Info form</h3>
+				
+			</div>
+			
+			<div class="card-body" >
+				<form action="predict" method="POST">
+
+					{% csrf_token %}
+				<!-- text box-->
+                    <!-- password box-->
+                    <h4 style=color:white>Patient Email::</h4>
+					<div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="Patient Email:"   name = "pemail" required>
+						
+                    </div>
+
+                    <h4 style=color:white>Doctor name::</h4>
+					<div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="Doctor name"   name = "docname" required>
+						
+                    </div>
+
+                    <h4 style=color:white>Report of:</h4>
+					<div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="Reportof"   name = "reportof" value="LungCancer" readonly>
+						
+                    </div>
+					
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" ><i class=" " style='color:white'>Genetic_Risk</i></span>
+                        </div>
+                        <div class="slidecontainer">
+						<input type="range" min="1" max="9" value="3" class="slider" id="myRange1" name="Genetic_Risk">
+                            <p style=color:white>Value: <span id="demo1"></span></p>
+                        </div>
+                            <script>
+                                var slider1 = document.getElementById("myRange1");
+                                var output1 = document.getElementById("demo1");
+                                output1.innerHTML = slider1.value;
+
+                                slider1.oninput = function() {
+                                  output1.innerHTML = this.value;
+                                }
+                                </script>
+						
+					</div>
+					<!-- text box-->
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" ><i class=" " style='color:white'>Occupational_hazard</i></span>
+                        </div>
+                        <div class="slidecontainer">
+						<input type="range" min="1" max="9" value="3" class="slider" id="myRange2" name="Occupational_hazard">
+                            <p style=color:white>Value: <span id="demo2" ></span></p>
+                        </div>
+                            <script>
+                                var slider2 = document.getElementById("myRange2");
+                                var output2 = document.getElementById("demo2");
+                                output2.innerHTML = slider2.value;
+                                
+                                slider2.oninput = function() {
+                                  output2.innerHTML = this.value;
+                                }
+                                </script>
+						
+					</div>
+					
+						<!-- text box-->
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" ><i class=" " style='color:white'>chest_pain</i></span>
+                            </div>
+                            <div class="slidecontainer">
+                            <input type="range" min="1" max="9" value="3" class="slider" id="myRange3" name="chest_pain">
+                                <p style=color:white>Value: <span id="demo3"></span></p>
+                            </div>
+                                <script>
+                                    var slider3 = document.getElementById("myRange3");
+                                    var output3 = document.getElementById("demo3");
+                                    output3.innerHTML = slider3.value;
+                                    
+                                    slider3.oninput = function() {
+                                      output3.innerHTML = this.value;
+                                    }
+                                    </script>
+                            
+                        </div>
+					<!-- text box-->
+                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" ><i class=" " style='color:white'>chronic_lung_cancer</i></span>
+                        </div>
+                        <div class="slidecontainer">
+						<input type="range" min="1" max="9" value="3" class="slider" id="myRange4" name="chronic_lung_cancer">
+                            <p style=color:white>Value: <span id="demo4"></span></p>
+                        </div>
+                            <script>
+                                var slider4 = document.getElementById("myRange4");
+                                var output4 = document.getElementById("demo4");
+                                output4.innerHTML = slider4.value;
+                                
+                                slider4.oninput = function() {
+                                  output4.innerHTML = this.value;
+                                }
+                                </script>
+						
+					</div>
+					<!-- password box-->
+					
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" ><i class=" " style='color:white'>clubbing_of_finger_nail</i></span>
+                        </div>
+                        <div class="slidecontainer">
+						<input type="range" min="1" max="9" value="3" class="slider" id="myRange5" name="clubbing_of_finger_nail">
+                            <p style=color:white>Value: <span id="demo5"></span></p>
+                        </div>
+                            <script>
+                                var slider5 = document.getElementById("myRange5");
+                                var output5 = document.getElementById("demo5");
+                                output5.innerHTML = slider5.value;
+                                
+                                slider5.oninput = function() {
+                                  output5.innerHTML = this.value;
+                                }
+                                </script>
+						
+					</div>
+					
+					<!-- password box-->
+					
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" ><i class=" " style='color:white'>coughing_of_blood</i></span>
+                        </div>
+                        <div class="slidecontainer">
+						<input type="range" min="1" max="9" value="3" class="slider" id="myRange6" name="coughing_of_blood">
+                            <p style=color:white>Value: <span id="demo6"></span></p>
+                        </div>
+                            <script>
+                                var slider6 = document.getElementById("myRange6");
+                                var output6 = document.getElementById("demo6");
+                                output6.innerHTML = slider6.value;
+                                
+                                slider6.oninput = function() {
+                                  output6.innerHTML = this.value;
+                                }
+                                </script>
+						
+					</div>
+						<!-- password box-->
+					
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" ><i class=" " style='color:white'>dry_cough</i></span>
+                            </div>
+                            <div class="slidecontainer">
+                            <input type="range" min="1" max="9" value="3" class="slider" id="myRange7" name="dry_cough">
+                                <p style=color:white>Value: <span id="demo7"></span></p>
+                            </div>
+                                <script>
+                                    var slider7 = document.getElementById("myRange7");
+                                    var output7 = document.getElementById("demo7");
+                                    output7.innerHTML = slider7.value;
+                                    
+                                    slider7.oninput = function() {
+                                      output7.innerHTML = this.value;
+                                    }
+                                    </script>
+                            
+                        </div>
+
+                        	<!-- password box-->
+					
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" ><i class=" " style='color:white'>fatigue</i></span>
+                        </div>
+                        <div class="slidecontainer">
+						<input type="range" min="1" max="9" value="3" class="slider" id="myRange8" name="fatigue">
+                            <p style=color:white>Value: <span id="demo8"></span></p>
+                        </div>
+                            <script>
+                                var slider8 = document.getElementById("myRange8");
+                                var output8 = document.getElementById("demo8");
+                                output8.innerHTML = slider8.value;
+                                
+                                slider8.oninput = function() {
+                                  output8.innerHTML = this.value;
+                                }
+                                </script>
+						
+                    </div>
+                    
+                    	<!-- password box-->
+					
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" ><i class=" " style='color:white'>passive_smoker</i></span>
+                        </div>
+                        <div class="slidecontainer">
+						<input type="range" min="1" max="9" value="3" class="slider" id="myRange9" name="passive_smoker">
+                            <p style=color:white>Value: <span id="demo9"></span></p>
+                        </div>
+                            <script>
+                                var slider9 = document.getElementById("myRange9");
+                                var output9 = document.getElementById("demo9");
+                                output9.innerHTML = slider9.value;
+                                
+                                slider9.oninput = function() {
+                                  output9.innerHTML = this.value;
+                                }
+                                </script>
+						
+                    </div>
+                    
+                    	<!-- password box-->
+					
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" ><i class=" " style='color:white'>smocking</i></span>
+                        </div>
+                        <div class="slidecontainer">
+						<input type="range" min="1" max="9" value="3" class="slider" id="myRange10" name="smocking">
+                            <p style=color:white>Value: <span id="demo10"></span></p>
+                        </div>
+                            <script>
+                                var slider10 = document.getElementById("myRange10");
+                                var output10 = document.getElementById("demo10");
+                                output10.innerHTML = slider10.value;
+                                
+                                slider10.oninput = function() {
+                                  output10.innerHTML = this.value;
+                                }
+                                </script>
+						
+                    </div>
+                    
+                    	<!-- password box-->
+					
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" ><i  style='color:white'>weight_loss</i></span>
+                        </div>
+                        <div class="slidecontainer">
+						<input type="range" min="1" max="9" value="3" class="slider" id="myRange11" name="weight_loss">
+                            <p style=color:white>Value: <span id="demo11"></span></p>
+                        </div>
+                            <script>
+                                var slider11 = document.getElementById("myRange11");
+                                var output11 = document.getElementById("demo11");
+                                output11.innerHTML = slider11.value;
+                                
+                                slider11.oninput = function() {
+                                  output11.innerHTML = this.value;
+                                }
+                                </script>
+						
+					</div>
+					
+					
+					
+					 
+					<div class="form-group d-flex justify-content-center">
+						<input type="submit" value="Submit" class="btn float-right login_btn" style='background-color:red'>
+					</div>
+				</form>
+			</div>
+			
+			<div class="card-footer">
+				 
+				
+			</div>
+		</div>
+	</div>
+	 </div>
+<div>
+	{% for message in messages %}
+	<h6>{{message}}</h6>
+	{% endfor %}
+</div>
+</body>

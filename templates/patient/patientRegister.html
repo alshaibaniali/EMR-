@@ -1,0 +1,128 @@
+{% load static %}
+
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Patient Registration</title>
+<link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+<script src="{%static 'js/bootstrap.min.js' %}"></script>
+<script src="{%static 'js/jquery.min.js' %}"></script>
+<link href="{%static 'css/font-awesome.min.css' %}" rel="stylesheet" id="bootstrap-css">
+ 
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"  >
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/all2.css' %}">
+<!--	<script src="{% static 'js/myscript.js' %}"></script>-->
+	
+</head>
+
+<body >
+<div id="snowflakeContainer">
+<span class="snowflake"> <h1 color="green"> EMR Data</h1></span>
+</div>
+
+<div class="container" >
+	
+	<div id="doctor"></div>
+	
+
+ 
+           
+
+
+
+
+
+	<div class="d-flex justify-content-center h-100  option-doctor">
+	
+	
+	
+		<div class="card" style="width: 40rem; height: 30rem;">
+			<div class="card-header">
+				<h3>Patient Registration form</h3>
+				<div class="d-flex justify-content-end social_icon ">
+					<span><i class="fa fa-stethoscope" style="font-size:58px;color:blue"></i></span>
+					<span><i class="fa fa-heartbeat" style="font-size:58px;color:white"></i></span>
+					<span><i class="fa fa-plus-square" style="font-size:58px;color:blue"></i></span>
+					<span><i class="fa fa-user-md" style="font-size:56px;color:white"></i></span>
+					
+				</div>
+			</div>
+			
+			<div class="card-body" >
+				<form action="pregister" method="POST">
+
+					{% csrf_token %}
+				<!-- text box-->
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" ><i class="fa fa-user icon" style='color:blue'></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="full name" name = "fname"  required="">
+						
+					</div>
+				
+					
+						<!-- text box-->
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" ><i class="fa fa-envelope" style='color:blue'></i></span>
+						</div>
+						<input type="email" class="form-control" placeholder="Running mail id" name="pemail"  required="">
+						
+					</div>
+					
+					<!-- password box-->
+					
+					<div class="input-group form-group" >
+						<div class="input-group-prepend"  >
+							<span class="input-group-text" style='color:red'><i class="fas fa-key" style='color:blue'></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="password" name="Ppassword"  required="">
+					</div>
+					
+					<!-- password box-->
+					
+					<div class="input-group form-group" >
+						<div class="input-group-prepend"  >
+							<span class="input-group-text" style='color:red'><i class="fas fa-key" style='color:blue'></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="phone number" name="phone"  required="">
+					</div>
+					
+					<!-- text box-->
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" ><i class="fa fa-home" style='color:blue'></i></span>
+						</div>
+                        <!--<input type="text" class="form-control" placeholder="Enter the address" name="address"> -->
+                        <textarea name="address" rows="4" cols="58" placeholder="Enter the address"  required=""></textarea>
+						
+					</div>
+					
+					
+					 
+					<div class="form-group d-flex justify-content-center">
+						<input type="submit" value="Signup" class="btn float-right login_btn" style='background-color:red'>
+					</div>
+				</form>
+			</div>
+			
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links" style='background-color:green'>
+					You have an account?<a href="login2">Sign_in</a>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	 </div>
+
+</body>

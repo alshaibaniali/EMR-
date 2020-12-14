@@ -1,0 +1,143 @@
+{% load static %}
+
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Copd  report</title>
+
+<link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+<script src="{%static 'js/bootstrap.min.js' %}"></script>
+<script src="{%static 'js/jquery.min.js' %}"></script>
+<link href="{%static 'css/font-awesome.min.css' %}" rel="stylesheet" id="bootstrap-css">
+ 
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"  >
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/all2.css' %}">
+<!--    <script src="{% static 'js/myscript.js' %}"></script>-->
+    <style>
+        body{
+			background-image: url('{% static 'images/home-banner.jpg' %}');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			height: 100%;
+        }
+    </style>
+	
+</head>
+
+<body >
+<div id="snowflakeContainer">
+<span class="snowflake"> <h1 color="green"> EMR Data</h1></span>
+</div>
+
+
+<div class="container" >
+	<!--<h1> EMR Data Analysis System to Predict Various Diseases</h1> -->
+		<!--<h1 class="display-6">EMR Data Analysis System to Predict Various Diseases </h1> -->
+	
+	
+	
+		<div id="doctor"></div>
+
+		
+		
+
+
+
+
+	<div class="d-flex justify-content-center h-100 float-md-center option-doctor">
+	
+	
+	
+		<div class="card" style="width: 40rem; height: 50rem;">
+			<div class="card-header">
+				<h3>Fill the details</h3>
+				 
+			</div>
+			
+			<div class="card-body" >
+				<form action="predCopd" method="POST">
+					{% csrf_token %}
+					<h4 style=color:white>Patient Email::</h4>
+					<div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="Patient Email:"   name = "pemail" required>
+						
+                    </div>
+
+                    <h4 style=color:white>Doctor name::</h4>
+					<div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="Doctor name"   name = "docname" required>
+						
+                    </div>
+
+                    <h4 style=color:white>Report of:</h4>
+					<div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="Reportof"   name = "reportof" value="LungCancer" readonly>
+						
+                    </div>
+					
+					<h4 style=color:white>lip color:</h4>
+					<div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="lipcolor"   name = "lipcolor" required>
+						
+                    </div>
+                    <h4 style=color:white>FEV1:</h4>
+                    <div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="FEV1"   name = "FEV1" required>
+						
+                    </div>
+                    <h4 style=color:white>Smoking intensity:</h4>
+                    <div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="smoking intensity"   name = "smoking_intensity" required>
+						
+                    </div>
+                    <h4 style=color:white>temperature:</h4>
+                    <div class="input-group form-group">
+						 
+						<input type="text" class="form-control" placeholder="temperature"   name = "temperature" required>
+						
+                    </div>
+                    
+                   
+                     
+ 
+					 
+					<div class="form-group">
+						<input type="submit" value="Submit" class="btn float-right login_btn" style='background-color:red'>
+					</div>
+				</form>
+			</div>
+			
+			 
+
+
+				 
+			</div>
+		</div>
+	</div>
+	 
+</div>
+
+<div>
+	{% for message in messages %}
+	<h6>{{message}}</h6>
+	{% endfor %}
+</div>
+
+
+
+</body>

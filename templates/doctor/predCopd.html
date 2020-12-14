@@ -1,0 +1,169 @@
+{% load static %}
+
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Copd predicted report</title>
+<link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+<script src="{%static 'js/bootstrap.min.js' %}"></script>
+<script src="{%static 'js/jquery.min.js' %}"></script>
+<link href="{%static 'css/font-awesome.min.css' %}" rel="stylesheet" id="bootstrap-css">
+ 
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"  >
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/all2.css' %}">
+<!--	<script src="{% static 'js/myscript.js' %}"></script>-->
+	
+</head>
+
+<body >
+<div id="snowflakeContainer">
+<span class="snowflake"> <h1 color="green"> EMR Data</h1></span>
+</div>
+
+<div class="container" >
+	
+	<div id="doctor"></div>
+	
+
+ 
+           
+
+
+
+  <form action="copdesv" method="POST">
+    {% csrf_token %}
+
+	<div class="d-flex justify-content-center h-100  option-doctor">
+   
+	
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th colspan="3" > <center><h1>Report</h1></center></th>
+            </tr>
+          
+           
+            <tr>
+              <td colspan="2" class="bg-success">Patient email</td>
+              <td  ><div class="input-group form-group">
+           
+                <input type="text" class="form-control" value={{pemail1}} text-align="center" name = "pemail" readonly>
+                
+              </div></td>
+
+            </tr>
+            <tr>
+              <td colspan="2" class="bg-success">Doctor Name</td>
+              <td><div class="input-group form-group">
+           
+                <input type="text" class="form-control" value={{docname1}} text-align="center" name = "docname" readonly>
+                
+              </div></td>
+
+            </tr>
+            <tr>
+              <td colspan="2" class="bg-success"> Report</td>
+              <td><div class="input-group form-group">
+           
+                <input type="text" class="form-control" value={{reportof}} text-align="center" name = "reportof" readonly>
+                
+              </div></td>
+
+            </tr>
+            <tr>
+              <th scope="col" class="bg-danger">Row</th>
+              <th scope="col" class="bg-info">symptoms</th>
+              <th scope="col" class="bg-warning">Range of symptoms</th>
+               
+            </tr>
+          </thead>
+            
+            
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>lipcolor</td>
+                <td><div class="input-group form-group">
+						 
+                  <input type="text" class="form-control" value={{lipcolor}}  name = "lipcolor" readonly>
+                  
+                </div> </td>
+                 
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>FEV1</td>
+                <td><div class="input-group form-group">
+						 
+                  <input type="text" class="form-control" value={{FEV1}}  name = "FEV1" readonly>
+                  
+                </div></td>
+                 
+              </tr>
+              
+              
+              <tr>
+                <th scope="row">3</th>
+                <td>smoking_intensity</td>
+                <td><div class="input-group form-group">
+						 
+                  <input type="text" class="form-control" value={{smoking_intensity}}  name = "smoking_intensity" readonly>
+                  
+                </div> </td>
+                
+              </tr>
+              
+              <tr>
+                <th scope="row">4</th>
+                <td>temperature</td>
+                <td><div class="input-group form-group">
+						 
+                  <input type="text" class="form-control" value={{temperature}}  name = "temperature" readonly>
+                  
+                </div> </td>
+                
+              </tr>
+              
+             
+              
+              <tr  align="center">
+                          <th colspan="3" > risk of lung COPD</th>
+               </tr>
+              
+              <tr align="center">
+                          <th colspan="3"><div class="input-group form-group">
+						 
+                            <input type="text" class="form-control" value={{data3}}  name = "data3" readonly>
+                            
+                          </div> </th>
+               </tr>
+              
+             
+              
+              
+              
+            </tbody>
+          </table>
+          <div class="form-group d-flex justify-content-center">
+            <input type="submit" value="Send" class="btn float-right login_btn" style='background-color:red'>
+          </div>
+		 </form>
+			
+			 
+			 
+				 
+				
+			</div>
+		</div>
+	</div>
+	 </div>
+
+</body>
